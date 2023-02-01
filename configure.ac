@@ -4,6 +4,7 @@
 #                             / __| | | | |_) | |
 #                            | (__| |_| |  _ <| |___
 #                             \___|\___/|_| \_\_____|
+
 #
 # Copyright (C) 1998 - 2009, Daniel Stenberg, <daniel@haxx.se>, et al.
 #
@@ -2149,25 +2150,6 @@ if test "$disable_poll" = "no"; then
   dnl to find out we make an extra check here!
   if test "$ac_cv_func_poll" = "yes"; then
     AC_MSG_CHECKING([if poll works with NULL inputs])
-    AC_RUN_IFELSE([
-#ifdef HAVE_SYS_POLL_H
-#include <sys/poll.h>
-#elif defined(HAVE_POLL_H)
-#include <poll.h>
-#endif
-
-  int main(void)
-  {
-    /* make this return 0 == timeout since there's nothing to read from */
-    return poll((void *)0, 0, 10 /*ms*/);
-  }
-],
-    AC_MSG_RESULT(yes)
-    AC_DEFINE(HAVE_POLL_FINE, 1, [If you have a fine poll]),
-    AC_MSG_RESULT(no),
-    AC_MSG_RESULT(cross-compiling assumes yes)
-    AC_DEFINE(HAVE_POLL_FINE, 1, [If you have a fine poll])
-    ) dnl end of AC_RUN_IFELSE
   fi dnl poll() was found
 fi dnl poll()-check is not disabled
 
