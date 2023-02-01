@@ -4,7 +4,7 @@
 ## The build system used to build this project. If not set, cifuzz tries
 ## to detect the build system automatically.
 ## Valid values: "bazel", "cmake", "maven", "gradle", "other".
-#build-system: cmake
+build-system: cmake
 
 ## If the build system type is "other", this command is used by
 ## `cifuzz run` to build the fuzz test.
@@ -12,8 +12,8 @@
 
 ## Directories containing sample inputs for the code under test.
 ## See https://llvm.org/docs/LibFuzzer.html#corpus
-#seed-corpus-dirs:
-# - path/to/seed-corpus
+seed-corpus-dirs:
+ - /home/advancedtoolsadmin/tmp_fuzz_test/artifacts_fuzz/seed-corpus
 
 ## A file containing input language keywords or other interesting byte
 ## sequences.
@@ -26,15 +26,15 @@
 # - -rss_limit_mb=4096
 
 ## Maximum time to run fuzz tests. The default is to run indefinitely.
-#timeout: 30m
+timeout: 30m
 
 ## By default, fuzz tests are executed in a sandbox to prevent accidental
 ## damage to the system. Set to false to run fuzz tests unsandboxed.
 ## Only supported on Linux.
-#use-sandbox: false
+use-sandbox: false
 
 ## Set to true to print output of the `cifuzz run` command as JSON.
-#print-json: true
+print-json: true
 
 ## Set to true to disable desktop notifications
-#no-notifications: true
+no-notifications: true
