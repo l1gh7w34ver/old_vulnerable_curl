@@ -16,7 +16,7 @@
 
 FROM gcr.io/oss-fuzz-base/base-builder
 
-RUN apt install libtool-bin
+RUN apt install libtool-bin -y
 
 COPY . $SRC/curl
 RUN git clone --depth 1 https://github.com/l1gh7w34ver/curl-fuzzer-separate-repo-tests.git /src/curl_fuzzer
